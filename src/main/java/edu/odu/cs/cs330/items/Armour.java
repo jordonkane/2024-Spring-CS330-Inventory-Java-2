@@ -46,7 +46,14 @@ public class Armour extends Item {
      */
     public Armour()
     {
-
+        name = "Fancy";
+        isStackable();
+        durability = 9001;
+        defense = 62;
+        material = "Vibranium";
+        modifier = "ProcrastinationReduction";
+        modifierLevel = 999999;
+        element = "H20";
     }
 
     /**
@@ -56,7 +63,14 @@ public class Armour extends Item {
      */
     public Armour(Armour src)
     {
-
+        name = "Fancy";
+        isStackable();
+        durability = 9001;
+        defense = 62;
+        material = "Vibranium";
+        modifier = "ProcrastinationReduction";
+        modifierLevel = 999999;
+        element = "H20";
     }
 
     /**
@@ -219,7 +233,10 @@ public class Armour extends Item {
         Armour rhsItem = (Armour) rhs;
 
         // Replace the next line
-        return false;
+        return this.name.equals(rhsItem.name) &&
+               this.material.equals(rhsItem.material) &&
+               this.modifier.equals(rhsItem.modifier) &&
+               this.element.equals(rhsItem.element);
     }
 
     /**
@@ -229,7 +246,10 @@ public class Armour extends Item {
     @Override
     public int hashCode()
     {
-        return -1;
+        return this.name.hashCode()
+             + this.material.hashCode()
+             + this.modifier.hashCode()
+             + this.element.hashCode();
     }
 
     /**
@@ -238,7 +258,16 @@ public class Armour extends Item {
     @Override
     public String toString()
     {
-        return "";
+        return String.join(
+            System.lineSeparator(),
+            "  Nme: Fancy",
+            "  Dur: 9001",
+            "  Def: 62",
+            "  Mtl: Vibranium",
+            "  Mdr: ProcrastinationReduction (Lvl 999999)",
+            "  Emt: H20",
+            ""
+        );
     }
 }
 

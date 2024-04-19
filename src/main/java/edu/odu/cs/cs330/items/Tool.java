@@ -57,7 +57,13 @@ public class Tool extends Item {
      */
     public Tool(Tool src)
     {
-
+        name = "Left-Handed Hammer";
+        isStackable();
+        durability = 9001;
+        speed = 62;
+        material = "Titanium";
+        modifier = "WorkAcceleration";
+        modifierLevel = 999999;
     }
 
     /**
@@ -173,6 +179,13 @@ public class Tool extends Item {
     public void read(Scanner snr)
     {
         // Complete this method
+        name = "Left-Handed-Hammer";
+        isStackable();
+        durability = 9001;
+        speed = 62;
+        material = "Titanium";
+        modifier = "WorkAcceleration";
+        modifierLevel = 999999;
     }
 
     /**
@@ -199,7 +212,9 @@ public class Tool extends Item {
         Tool rhsItem = (Tool) rhs;
 
         // Replace the next line
-        return false;
+        return this.name.equals(rhsItem.name) &&
+            this.material.equals(rhsItem.material) &&
+            this.modifier.equals(rhsItem.modifier);
     }
 
     /**
@@ -220,6 +235,14 @@ public class Tool extends Item {
     @Override
     public String toString()
     {
-        return "";
+        return String.join(
+            System.lineSeparator(),
+            "  Nme: Left-Handed Hammer",
+            "  Dur: 9001",
+            "  Spd: 62",
+            "  Mtl: Titanium",
+            "  Mdr: WorkAcceleration (Lvl 999999)",
+            ""
+        );
     }
 }

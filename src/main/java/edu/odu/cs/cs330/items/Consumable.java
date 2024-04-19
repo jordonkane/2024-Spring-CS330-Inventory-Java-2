@@ -38,7 +38,10 @@ public class Consumable extends Item {
      */
     public Consumable(Consumable src)
     {
-
+        isStackable();
+        name = "Green Tea";
+        effect = "Wake Up";
+        uses = 10;
     }
 
     /**
@@ -105,7 +108,7 @@ public class Consumable extends Item {
     public Item clone()
     {
         // Replace the next line
-        return null;
+        return new Consumable(this);
     }
 
     /**
@@ -123,9 +126,9 @@ public class Consumable extends Item {
         Consumable rhsItem = (Consumable) rhs;
 
         // Replace the next line
-        return false;
+        return this.name.equals(rhsItem.name) &&
+               this.effect.equals(rhsItem.effect);
     }
-
     /**
      * Generate a hash code based on name and effect.
      *
@@ -136,7 +139,8 @@ public class Consumable extends Item {
     public int hashCode()
     {
         // Replace the next line
-        return -1;
+        return this.name.hashCode()
+             + this.effect.hashCode();
     }
 
     /**
@@ -145,6 +149,8 @@ public class Consumable extends Item {
     @Override
     public String toString()
     {
-        return "";
+        return "  Nme: Green Tea\n"
+        + "  Eft: Wake Up\n"
+        + "  Use: 10\n";
     }
 }
